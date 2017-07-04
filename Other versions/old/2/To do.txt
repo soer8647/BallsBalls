@@ -1,0 +1,11 @@
+State concept 
+(gameState,
+ MenuState,
+ HighScoreState,
+ SettingsState
+)
+
+Implement Menu properly
+Settings in one page
+Sound Settings
+users

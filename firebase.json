@@ -1,0 +1,23 @@
+{
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": "public",
+	"rewrites": [
+{
+  "source": "/settings",
+  "destination": "/settings.html"
+} ,
+{
+  "source": "/highscore",
+  "destination": "/highscore.html"
+},
+{
+ "source": "*",
+ "destination": "/index.html"
+}
+]
+
+  }
+}

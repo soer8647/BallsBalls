@@ -1,0 +1,58 @@
+///////////////////////////////////
+///////   New Objectives    ///////
+///////////////////////////////////
+**Iron out singlePage merging project**
+Intro guide
+checkup on diagonal movement
+
+Start balancing, create a levers to control difficulty
+/ change level progression
+establish facade between game and animation
+
+powerup options
+challenges
+SHIELD
+///////////////////////////////////
+///////   done'ish Objectives    ///////
+///////////////////////////////////
+Sound settings (done?)
+Pause Game(done?)
+Fix control method settings (done?)
+///////////////////////////////////
+////////     Old Stuff    /////////
+///////////////////////////////////
+State concept 
+(gameState,
+ MenuState,
+ HighScoreState,
+ SettingsState
+)
+
+Implement Menu properly
+Settings in one page
+Sound Settings
+users
+
+
+///////////////////////////////////
+////////   From mobile    /////////
+///////////////////////////////////
+
+Old TODO's:
+Fix highscore submitting
+reveal invis Ball on impact
+fix text
+lock when submitting
+startsite
+fjern størrelseforskelle (alt relativt)
+Seeker ball fix loop
+
+Ideas:
+Integrate/merge Pages/Single page'ify
+Hints/Legends
+Map (forhindringer)
+samle ting (powerups)
+Multiplayer (vs mode)
+Webgl (the conversion)
+Anti-mur ting (seeker is an idea)
+Highscore board (+rework)

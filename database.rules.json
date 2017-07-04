@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "scores": {
+	".read": true,
+      "$scores": {
+        ".write": true,
+        ".validate": "newData.hasChildren(['level', 'method', 'name', 'score']) && newData.child('name').val().length < 11 && newData.child('level').isNumber() && newData.child('score').isNumber()"
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Credits</title>
+<style>
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+</style>
+    
+
+    <script src="Cookies.js"></script>    
+        <script src="SettingsScript.js"></script>
+</head>
+<body>
+<h1>Settings for BallsBalls</h1>
+<h3>Made by Søren Oehlenschlæger Hjort</h3>
+    Uses Cookies To save
+    <br/>
+    <br/>
+    
+    Input Method:
+    <select id="input method">
+    <option value="mouse">Mouse</option>
+    <option value="wasd">WASD</option>
+    <option value="arrows">Arrow Keys</option>
+    </select>
+    
+    <br/>
+    <br/>
+    
+    Difficulty:
+    <select id="difficulty">
+    <option value="1">Easy</option>
+    <option value="2">Normal</option>
+    <option value="3">Hard</option>
+    <option value="3">Challenge</option>
+    </select>
+    
+    <br/>
+    <br/>
+    Max Screen Width: <input title="Max width"  type="number" id="x" value="0"/>
+    Max Screen Height: <input title="Max Height" type="number" id="y" value="0" />
+    
+    <br/>
+    <br/>
+    
+    <input type="button" id="save" value="Save Settings">
+<input type="button" id="play" value="Play Again">
+
+</body>
+</html>
