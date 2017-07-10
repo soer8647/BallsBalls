@@ -24,7 +24,8 @@ var settings = {
 	soundLevel: 1,
  
  diagonalFactor: 4,
- 
+ maxPlayernameLength:10,
+
  setSetting: setCookie,
  getSetting: getCookie,
  updateSettings: updateSettings,
