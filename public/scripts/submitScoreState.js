@@ -34,16 +34,16 @@ define(["Leaderboard","settings"],function(leaderboard,settings) {
 				settings.controlMethod,
 				controller);				
 			}
-		}
+		};
 		this.end = function() {
 			this.OuterDiv.innerHTML ="";
-		}
+		};
 		
 		this.keydownHandler = function(e) {
-		}
+		};
 		this.keyupHandler = function(e) {
 		}
-	}
+	};
 	
 	function getPlayerName() {
 	//	setWriteMode(); alternative method, not yet implemented
@@ -53,7 +53,7 @@ define(["Leaderboard","settings"],function(leaderboard,settings) {
 		if (playername == null) {
 			return null;
 		}
-		} while ((playername.length <= 0) || (playername.length > maxplayernamelength))
+		} while ((playername.length <= 0) || (playername.length > maxplayernamelength));
 		// Ask for playername until proper name is given, or cancel is chosen.		
 		return playername;
 	}

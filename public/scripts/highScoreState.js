@@ -16,20 +16,20 @@ define(["Leaderboard"],function(leaderboard) {
 					addRow(table,list[index]);
 				}
 			}, 10);
-		}
+		};
 
 		this.end = function() {
 			outerDiv.innerHTML = "";
-		}
+		};
 		
 		this.keydownHandler = function(e) {
 			if (e.keyCode == 77) { // m
 				controller.changeState("menuState");
 			}		
-		}
+		};
 		this.keyupHandler = function(e) {
 		}
-	}
+	};
 	
 	function addRow(table, data) { //adding a simple row
 		var rownumber = table.rows.length;

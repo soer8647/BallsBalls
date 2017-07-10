@@ -5,9 +5,9 @@ Paddle,Ball,Pickup
 ) {
 var canvas;
 var gameState = new GameValueHandler();
-var myFont = "Arial"
+var myFont = "Arial";
 var fillStyle = "#dd0095";
-var ctx
+var ctx;
 var p;
 var objects;
 var endFunc;
@@ -20,6 +20,7 @@ var commonValues;
 		canvas = aCanvas;
 		ctx = canvas.ctx;
 		endFunc = endFunction;
+        canvas.dom.style.backgroundColor = "black";
 		gameState.init(canvas.width, canvas.height);	
 		gracetimer = 0;
 		p = new Paddle(canvas.height/2, canvas.width/2, 
@@ -31,7 +32,7 @@ var commonValues;
 			stealthBallticks: gameState.stealthBallticks,
 			p: p,
 			maxTurn: gameState.maxTurn
-		}
+		};
 
 		objects = [];
 		
@@ -226,4 +227,4 @@ return {
 	pauseGameToggle: pauseGameToggle
 }
 
-})
+});

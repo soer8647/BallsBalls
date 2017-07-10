@@ -1,5 +1,5 @@
 define(["settings"],function(settings) {
-	var myFont = "Arial"
+	var myFont = "Arial";
 	var fillStyle = "green";
 	var keyStateMap = {};
 	keyStateMap[settings.restartKey] = "gameState";
@@ -38,17 +38,17 @@ define(["settings"],function(settings) {
 			canvas.dom.style.display = "block";
 			setMenuText(canvas);
 			
-		}
+		};
 		this.end = function() {
 			canvas.dom.style.display = "none";
-		}
+		};
 		
 		this.keydownHandler = function(e) {
 			let change = keyStateMap[e.keyCode];
 			if(change!=null) {
 				controller.changeState(change);				
 			}
-		}
+		};
 		this.keyupHandler = function(e) {
 		}
 	}

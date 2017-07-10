@@ -12,11 +12,11 @@ define(["DrawFunctions","Ball"],function(drawFunctions,Ball) {
 			} else {
 				this.ticks = this.ticks - 1;
 			}
-		}
+		};
 		
 		this.shape = function() {
 			return this.base.shape();
-		}
+		};
 		
 		this.draw = function(ctx) {
 			if (this.visible) {
@@ -24,4 +24,4 @@ define(["DrawFunctions","Ball"],function(drawFunctions,Ball) {
 			}
 		}
 	}
-})
+});

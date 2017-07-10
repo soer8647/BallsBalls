@@ -21,6 +21,7 @@ var settings = {
  controlMethod: "Arrow Keys",
  autoSubmit: false,
  playerAutoName: "",
+	soundLevel: 1,
  
  diagonalFactor: 4,
  
@@ -28,7 +29,7 @@ var settings = {
  getSetting: getCookie,
  updateSettings: updateSettings,
  init: updateSettings
-}
+};
 
 function setCookie(c_name,c_value,exdays) {
 	settings[c_name] = c_value;
@@ -37,8 +38,7 @@ function setCookie(c_name,c_value,exdays) {
 	   document.cookie=encodeURIComponent(c_name) 
 	     + "=" + encodeURIComponent(c_value)
 	     + (!exdays ? "" : "; expires="+exdate.toUTCString());
-	     ;
-	}
+}
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -52,7 +52,7 @@ function getCookie(cname) {
 }
 
 function updateSettings() {
-	setControl(getCookie("input"));
+	setControl(getCookie("controlMethod"));
 	safeUpdateValue("autoSubmit",autoSubmitDefault);
 	safeUpdateValue("playerAutoName",playerAutoNameDefault);
 	safeUpdateValue("soundLevel",soundLevelDefault);
@@ -70,13 +70,13 @@ function safeUpdateValue(name,defaultValue) {
 }
 
 function setControl(mode) {
-	if (mode=="wasd") {
+	if (mode=="WASD") {
 		settings.controlMethod = "WASD";			
 		settings.upKey = 87;
 		settings.leftKey = 65;
 		settings.downKey = 83;
 		settings.rightKey = 68;
-	} else if (mode=="mouse") {
+	} else if (mode=="Mouse") {
 		settings.controlMethod = "Mouse";
 	} else {
 		settings.controlMethod = "Arrow Keys";
@@ -88,4 +88,4 @@ function setControl(mode) {
 }
 
 return settings;
-})
+});

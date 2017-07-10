@@ -5,7 +5,7 @@ let firebaseURI = "https://leaderboard-bf98b.firebaseio.com";
     apiKey: "AIzaSyDnQy8gUVUldROZM3hxjg2_M3FE7Yg_cSc",
     authDomain: "leaderboard-bf98b.firebaseapp.com",
     databaseURL: "https://leaderboard-bf98b.firebaseio.com",
-    storageBucket: "leaderboard-bf98b.appspot.com",
+    storageBucket: "leaderboard-bf98b.appspot.com"
   };
   firebase.initializeApp(config);
 
@@ -13,9 +13,7 @@ let Leaderboard = function(){
 	this.firebase = firebase.database();
     this.firebase.ref("scores").orderByChild("score").limitToLast(5).on("value", (value) => {
             this.scores = value.val()
-    });
-
-	
+})
     this.add = function(data) {
         this.firebase.ref("scores").push(data).setPriority(data.score)
     };
@@ -37,7 +35,7 @@ let Leaderboard = function(){
 		function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
 				list.push(childSnapshot.val());
-			})
+			});
 			running = false;
 		});
     };

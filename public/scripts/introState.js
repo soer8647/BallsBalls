@@ -1,6 +1,6 @@
 define(["GameValueHandler","Paddle","Ball","Pickup"],
 function(GameValueHandler,Paddle,Ball,Pickup) {
-	var myFont = "Arial"
+	var myFont = "Arial";
 	var fillStyle = "green";
 	let player;
 	let pickup;
@@ -48,14 +48,14 @@ function(GameValueHandler,Paddle,Ball,Pickup) {
 			init();
 			setMenuText(canvas);
 			
-		}
+		};
 		this.end = function() {
 			canvas.dom.style.display = "none";
-		}
+		};
 		
 		this.keydownHandler = function(e) {
 			controller.changeState("menuState");	
-		}
+		};
 		this.keyupHandler = function(e) {
 		}
 	}

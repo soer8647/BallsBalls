@@ -35,7 +35,7 @@ define(["settings"],function(settings) {
 					}
 			}			
 	}
- }
+ };
  
  function addEventListener(myNode, eventType, myHandlerFunc) {
      if (myNode.addEventListener)
@@ -124,12 +124,12 @@ return function settingsState(controller,canvas) {
 	//outerDiv.innerHTML = '<h1>Settings for BallsBalls</h1><h3>Made by Søren Oehlenschlæger Hjort</h3>    Uses Cookies To save     <br/> 	     <br/>          Input Method:     <select id="input method">     <option value="Mouse">Mouse</option>     <option value="WASD">WASD</option>     <option value="Arrow Keys">Arrow Keys</option>     </select>          <br/>     <br/> 	 	Auto submit score after game: 	<br/> 	<input id="autoSubmit" type="checkbox"/> 	<br/> 	Name for Auto submit: 	<br/> 	<input id="playerName" type="text" name="playerName"> 	     <br/>     <br/>          <input type="button" id="cancel" value="Cancel Changes"> 	<input type="button" id="confirm" value="Confirm Changes"> ';
 	setUp();
 	initiateListeners(controller);
-	}
+	};
 	this.end = function() {
 		document.getElementById("outerDiv").innerHTML ="";
-	}
+	};
 	this.keydownHandler = function(e) {
-	}
+	};
 	
 	this.keyupHandler = function(e) {		
 	}

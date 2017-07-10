@@ -51,11 +51,10 @@ return function GameValueHandler() {
 		this.ballspertick++;
 	}
 	if ((this.level % this.baseForTicksPerBallDecrease) + this.baseForTicksPerBallDecrease == 0) {
-		this.ticksperball--;
+		this.tickperball--;
 	}
-	
-	this.levelstart = new Date().getTime() / 1000;
-	}
+
+	};
 	
 	let countervalue = 0;
 	
@@ -68,7 +67,7 @@ return function GameValueHandler() {
 			return true;
 		}
 		return false;
-	}
+	};
 	
 	
 		
@@ -113,7 +112,6 @@ return function GameValueHandler() {
 		this.minballRadius = averageSize / 200;
 
 		this.refreshTime = 1000/this.updatesPerSecond;
-		this.levelstart = new Date().getTime() / 1000;
 	}
 }
-})
+});

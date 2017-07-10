@@ -6,15 +6,17 @@ define(["settings","Music","GameFlow"],function(settings,music,game) {
 			return -1;
 		}	
 		return 0;
-	}
+	};
 	
 	
-	gameControlHandler = function(width,height) {
+	gameControlHandler = function(width,height,offsetX,offsetY) {
 		var upPressed = false;
 		var downPressed = false;
 		var rightPressed = false;
 		var leftPressed  = false;
-		
+		var mouse = {x: width/2,
+        y: height/2};
+		var offset = {x:offsetX,y:offsetY};
 		function keyboardControl(object, speed) {
 			let xChange = 0;
 			let yChange = 0;
@@ -42,18 +44,42 @@ define(["settings","Music","GameFlow"],function(settings,music,game) {
 			object.x += xChange;
 			object.y += yChange;			
 			
-			if (object.x < 0) {
-				object.x = 0;
-			} else if (object.x + object.height > height) {
-				object.x = height-object.height;
-			}
-			
-			if (object.y < 0) {
-				object.y = 0;
-			} else if (object.y + object.width > width) {
-				object.y = width-object.width;
-			}
+			containOnCanvas(object);
 		}
+
+		function containOnCanvas(object) {
+            if (object.x < 0) {
+                object.x = 0;
+            } else if (object.x + object.height > height) {
+                object.x = height-object.height;
+            }
+
+            if (object.y < 0) {
+                object.y = 0;
+            } else if (object.y + object.width > width) {
+                object.y = width-object.width;
+            }
+        }
+
+		function mouseControl(object, speed) {
+			let distx = mouse.x - object.x;
+            let disty = mouse.y - object.y;
+
+            let dist = Math.sqrt(Math.pow(distx, 2) + Math.pow(disty, 2));
+            if (dist == 0) {
+            	return;
+			}
+            if (dist>speed) {
+            	let scaling = dist/speed;
+                distx /= scaling;
+                disty /= scaling;
+            }
+
+            object.x += distx;
+            object.y += disty;
+
+            containOnCanvas(object);
+        }
 		
 		this.keyDown = function(e) {
 			if(e.keyCode == settings.downKey) {
@@ -69,7 +95,7 @@ define(["settings","Music","GameFlow"],function(settings,music,game) {
 			} else if(e.keyCode == settings.pauseKey) {
 				game.pauseGameToggle();
 			}
-		}
+		};
 		
 		this.keyUp = function(e) {
 			if(e.keyCode == settings.downKey) {
@@ -84,8 +110,19 @@ define(["settings","Music","GameFlow"],function(settings,music,game) {
 			else if(e.keyCode == settings.leftKey) {
 				leftPressed = false;
 			}
+		};
+
+		this.mouseMove = function (e) {
+		//	console.log(offset.x,offset.y);
+            mouse.x = e.clientX-offset.x;
+            mouse.y = e.clientY-offset.y;
+        };
+
+		if (settings.controlMethod == "Mouse") {
+			this.playerControl = mouseControl;
+		} else {
+            this.playerControl = keyboardControl;
 		}
-		this.playerControl = keyboardControl;
-	}
+	};
 	return gameControlHandler;
-})
+});

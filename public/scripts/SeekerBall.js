@@ -21,14 +21,14 @@ return function SeekerBall(startx,starty, vx, vy, radius,commonValues) {
         } else {
             this.currentDirection += commonValues.maxTurn*Calculations.shortestDirection(this.currentDirection,DesiredDirection,2*Math.PI);
         }
-	}
+	};
 	
 	this.shape = function() {
 		return this.base.shape();
-	}
+	};
 	
 	this.draw = function(ctx) {
 		drawFunctions.drawBall(this.base.x, this.base.y, this.base.radius,ctx,"#98bfc2");
 	};
 }
-})
+});

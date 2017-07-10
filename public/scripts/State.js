@@ -10,10 +10,17 @@ function(menuState,gameState,settingsState,submitScoreState,highscoreState,intro
 		this.keyUpHandler = function(e) {
 			self.currentState.keyupHandler(e);
 		};
+        this.mouseHandler = function (e) {
+        	if (self.currentState.mouseHandler instanceof Function) {
+				self.currentState.mouseHandler(e);
+            }
+        };
 		document.addEventListener("keydown", this.keyDownHandler, false);
-		document.addEventListener("keyup", this.keyUpHandler, false);
-	
-		
+        document.addEventListener("keyup", this.keyUpHandler, false);
+        document.addEventListener("mousemove", this.mouseHandler, false);
+
+
+
 		this.states = 
 		{
 			gameState: gameState.gameState,
@@ -37,10 +44,10 @@ function(menuState,gameState,settingsState,submitScoreState,highscoreState,intro
 	function testState(controller) {
 		this.init = function() {
 			console.log("starting test!");
-		}
+		};
 		this.end = function() {
 			console.log("ending test!");
-		}
+		};
 		
 		this.keydownHandler = function(e) {
 			if (e.keyCode == 77) { // m
@@ -48,7 +55,7 @@ function(menuState,gameState,settingsState,submitScoreState,highscoreState,intro
 			} else {
 				console.log("test!, code: " + e.keyCode);
 			}			
-		}
+		};
 		this.keyupHandler = function(e) {
 		}
 	}

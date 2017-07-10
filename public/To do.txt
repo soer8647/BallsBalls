@@ -1,9 +1,17 @@
 ///////////////////////////////////
 ///////   New Objectives    ///////
 ///////////////////////////////////
-**Iron out singlePage merging project**
-Intro guide
-checkup on diagonal movement
+fix spaces in names (autosubmit)
+make background more pronoun
+limit autosubmit name
+fix control method settings
+mods
+visually fix point i venstre hjÃ¸rne eller flyt score
+change seeker color (lilla)
+freeze screen when dead (auto submit)
+fix so you can "not autosubmit"
+
+standardize!
 
 Start balancing, create a levers to control difficulty
 / change level progression
@@ -43,7 +51,7 @@ reveal invis Ball on impact
 fix text
 lock when submitting
 startsite
-fjern størrelseforskelle (alt relativt)
+fjern stï¿½rrelseforskelle (alt relativt)
 Seeker ball fix loop
 
 Ideas:

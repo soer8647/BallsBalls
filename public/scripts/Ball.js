@@ -29,4 +29,4 @@ Ball.prototype.draw = function(ctx) {
 };
 
 return Ball;
-})
+});

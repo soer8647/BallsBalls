@@ -44,29 +44,32 @@ define(function() {
     random: function(min, max) {
     	return Math.floor(Math.random() * (max - min + 1)) + min;
     },
-    
-    CircleCircleColliding: function(c1,c2) {
+
+        /**
+         * @return {boolean}
+         */
+        CircleCircleColliding: function(c1,c2) {
     	var dist = this.dist(c1.x , c1.y , c2.x , c2.y);
-    	if (dist < Math.max(c1.r,c2.r)) {
-    		return true;
-    	}
-    		return false;
+    	return dist < Math.max(c1.r, c2.r);
+
     },
-	
-	RectRectColliding: function(r1,r2) {
+
+        /**
+         * @return {boolean}
+         */
+        RectRectColliding: function(r1,r2) {
 		var distX = Math.abs(r1.x + r1.w/2 - r2.x - r2.w/2);
 		var distY = Math.abs(r1.y + r1.h/2 - r2.y - r2.h/2);
 		
 		if (distX > (r1.w + r2.w)/2) {
 			return false;
-		} else if (distY > (r1.h + r2.h)/2) {
-			return false;
-		} else {
-			return true;
-		}		
+		} else return distY <= (r1.h + r2.h) / 2;
 	},
-    
-	RectCircleColliding: function(circle,rect){
+
+        /**
+         * @return {boolean}
+         */
+        RectCircleColliding: function(circle,rect){
 	        var distX = Math.abs(circle.x - rect.x-rect.w/2);
 	        var distY = Math.abs(circle.y - rect.y-rect.h/2);
 	
@@ -111,4 +114,4 @@ define(function() {
 
 	   
    }
-})
+});
