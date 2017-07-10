@@ -1,4 +1,4 @@
-define(["DrawFunctions","Calculations"],function(drawFunctions,Calculations) {
+define(["DrawFunctions","Calculations","settings"],function(drawFunctions,Calculations,settings) {
 let Ball = function (startx,starty, vx, vy, radius,commonValues) {
 	this.x = startx;
 	this.y = starty;
@@ -25,7 +25,7 @@ Ball.prototype.shape = function() {
 };
 
 Ball.prototype.draw = function(ctx) {
-		drawFunctions.drawBall(this.x, this.y, this.radius,ctx,"green");
+		drawFunctions.drawBall(this.x, this.y, this.radius,ctx,settings.standardBallColor);
 };
 
 return Ball;

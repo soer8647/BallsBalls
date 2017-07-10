@@ -9,13 +9,18 @@ define(["settings"], function (settings) {
         var name = document.getElementById("playerName");
         var sound = document.getElementById("sound");
         addEventListener(confirmButton, "click", function () {
-            settings.setSetting("settings", true, 100);
-            settings.setSetting("playerAutoName", name.value, 100);
-            settings.setSetting("controlMethod", input.value, 100);
-            settings.setSetting("autoSubmit", aSubmit.checked, 100);
-            settings.setSetting("soundLevel", sound.value, 100);
-            settings.updateSettings();
-            controller.changeState("menuState");
+            let playername = name.value;
+            if (((playername.length <= 0) || (playername.length > settings.maxPlayernameLength)) && aSubmit.checked){
+                alert("invalid name, max length is 10 characters!");
+            } else {
+                settings.setSetting("settings", true, 100);
+                settings.setSetting("playerAutoName", name.value, 100);
+                settings.setSetting("controlMethod", input.value, 100);
+                settings.setSetting("autoSubmit", aSubmit.checked, 100);
+                settings.setSetting("soundLevel", sound.value, 100);
+                settings.updateSettings();
+                controller.changeState("menuState");
+            }
         });
 
         addEventListener(cancelButton, "click", function () {

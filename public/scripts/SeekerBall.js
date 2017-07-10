@@ -1,4 +1,4 @@
-define(["DrawFunctions","Calculations","Ball"],function(drawFunctions,Calculations,Ball) {
+define(["DrawFunctions","Calculations","Ball", "./settings"],function(drawFunctions, Calculations, Ball, settings) {
 	
 return function SeekerBall(startx,starty, vx, vy, radius,commonValues) {
 	this.target = commonValues.p;
@@ -28,7 +28,7 @@ return function SeekerBall(startx,starty, vx, vy, radius,commonValues) {
 	};
 	
 	this.draw = function(ctx) {
-		drawFunctions.drawBall(this.base.x, this.base.y, this.base.radius,ctx,"#98bfc2");
+		drawFunctions.drawBall(this.base.x, this.base.y, this.base.radius,ctx,settings.seekerBallColor);
 	};
 }
 });

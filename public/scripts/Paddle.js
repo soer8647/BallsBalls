@@ -1,4 +1,4 @@
-define(["DrawFunctions","Calculations"],function(drawFunctions,Calculations) {
+define(["DrawFunctions","Calculations", "./settings"],function(drawFunctions, Calculations, settings) {
 return function Paddle(ax,ay,length,controller,playerSpeed) {
 	this.x = ax;
 	this.y = ay;
@@ -13,7 +13,7 @@ return function Paddle(ax,ay,length,controller,playerSpeed) {
 	};
 	
 	this.draw = function(ctx) {
-		drawFunctions.drawRect(this.x, this.y, this.width, this.height,ctx,"#0095DD");
+		drawFunctions.drawRect(this.x, this.y, this.width, this.height,ctx,settings.playerColor);
 	}
 }
 });

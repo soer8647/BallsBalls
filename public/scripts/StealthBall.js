@@ -1,4 +1,4 @@
-define(["DrawFunctions","Ball"],function(drawFunctions,Ball) {
+define(["DrawFunctions","Ball", "./settings"],function(drawFunctions, Ball, settings) {
 	return function StealthBall(startx,starty, vx, vy, radius,commonValues) {
 		this.base = new Ball(startx,starty, vx, vy, radius,commonValues);
 		this.speed = (Math.abs(this.base.dx) + Math.abs(this.base.dy)) / 2;
@@ -20,7 +20,7 @@ define(["DrawFunctions","Ball"],function(drawFunctions,Ball) {
 		
 		this.draw = function(ctx) {
 			if (this.visible) {
-				drawFunctions.drawBall(this.base.x, this.base.y, this.base.radius,ctx,"red");
+				drawFunctions.drawBall(this.base.x, this.base.y, this.base.radius,ctx,settings.stealthBallColor);
 			}
 		}
 	}

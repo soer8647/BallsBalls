@@ -1,7 +1,7 @@
-define(["GameValueHandler","Paddle","Ball","Pickup"],
-function(GameValueHandler,Paddle,Ball,Pickup) {
+define(["GameValueHandler","Paddle","Ball","Pickup", "./settings"],
+function(GameValueHandler, Paddle, Ball, Pickup, settings) {
 	var myFont = "Arial";
-	var fillStyle = "green";
+	var fillStyle = settings.menuTextColor;
 	let player;
 	let pickup;
 	

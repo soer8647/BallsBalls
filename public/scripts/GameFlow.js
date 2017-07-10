@@ -1,12 +1,11 @@
 define(["GameValueHandler","Music","Calculations",
-"Paddle","Ball","Pickup"
-],function(GameValueHandler,music,Calculations,
-Paddle,Ball,Pickup
-) {
+"Paddle","Ball","Pickup", "./settings"
+],function(GameValueHandler, music, Calculations,
+           Paddle, Ball, Pickup, settings) {
 var canvas;
 var gameState = new GameValueHandler();
 var myFont = "Arial";
-var fillStyle = "#dd0095";
+var fillStyle = settings.gameTextColor;
 var ctx;
 var p;
 var objects;
@@ -20,7 +19,6 @@ var commonValues;
 		canvas = aCanvas;
 		ctx = canvas.ctx;
 		endFunc = endFunction;
-        canvas.dom.style.backgroundColor = "black";
 		gameState.init(canvas.width, canvas.height);	
 		gracetimer = 0;
 		p = new Paddle(canvas.height/2, canvas.width/2, 

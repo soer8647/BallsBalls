@@ -1,20 +1,17 @@
 ///////////////////////////////////
 ///////   New Objectives    ///////
 ///////////////////////////////////
-fix spaces in names (autosubmit)
 make background more pronoun
-limit autosubmit name
-mods
 visually fix point i venstre hjørne eller flyt score
 change seeker color (lilla)
 freeze screen when dead (auto submit)
 
 standardize!
-
 Start balancing, create a levers to control difficulty
 / change level progression
 establish facade between game and animation
 
+mods
 powerup options
 challenges
 ///////////////////////////////////
@@ -23,41 +20,40 @@ challenges
 Sound settings (done?)
 Pause Game(done?)
 Fix control method settings (done?)
+
 ///////////////////////////////////
 ////////     Old Stuff    /////////
 ///////////////////////////////////
-State concept 
+State concept  (done)
 (gameState,
  MenuState,
  HighScoreState,
  SettingsState
 )
 
-Implement Menu properly
-Settings in one page
-Sound Settings
+Implement Menu properly (done?)
+Settings in one page (done)
+Sound Settings (done)
 users
-
-
 ///////////////////////////////////
 ////////   From mobile    /////////
 ///////////////////////////////////
 
 Old TODO's:
-Fix highscore submitting
-reveal invis Ball on impact
-fix text
+Fix highscore submitting (done)
+reveal invis Ball on impact (done)
+fix text (done?)
 lock when submitting
-startsite
-fjern st�rrelseforskelle (alt relativt)
-Seeker ball fix loop
+startsite (done)
+fjern st�rrelseforskelle (alt relativt) (done?)
+Seeker ball fix loop (done)
 
 Ideas:
-Integrate/merge Pages/Single page'ify
+Integrate/merge Pages/Single page'ify (done?)
 Hints/Legends
 Map (forhindringer)
 samle ting (powerups)
 Multiplayer (vs mode)
 Webgl (the conversion)
-Anti-mur ting (seeker is an idea)
-Highscore board (+rework)
+Anti-mur ting (seeker is an idea (done))
+Highscore board (+rework) (done?)

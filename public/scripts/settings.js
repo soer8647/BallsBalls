@@ -25,6 +25,16 @@ var settings = {
  
  diagonalFactor: 4,
  maxPlayernameLength:10,
+	playerColor:"#0095DD",
+    standardBallColor:"#008000",
+    stealthBallColor: "#ff0000",
+    seekerBallColor:"#47b1a2",
+    gameTextColor:"#dd0095",
+    menuTextColor:"#00d300",
+	canvasBackgroundColor: "#ffffff",
+	outsideBackgroundColor: "#4d4bff",
+
+
 
  setSetting: setCookie,
  getSetting: getCookie,
@@ -47,7 +57,7 @@ function getCookie(cname) {
     for(var i=0; i<ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+        if (c.indexOf(name) == 0) return decodeURI(c.substring(name.length,c.length));
     }
     return "";
 }
