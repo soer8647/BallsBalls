@@ -1,4 +1,4 @@
-define(["SeekerBall","StealthBall"],function(SeekerBall, StealthBall) {
+define(["SeekerBall", "StealthBall", "CirclingBall"], function (SeekerBall, StealthBall, CirclingBall) {
 	function dist(x1,y1,x2,y2) {
     	return Math.sqrt(Math.pow(Math.abs(x1 - x2),2) + Math.pow(Math.abs(y1 - y2),2));
     }
@@ -18,7 +18,8 @@ return function GameValueHandler() {
 	this.ballspertick; //how many balls are created at once
 	this.basemaxBallspeed;
 	this.baseminBallspeed;
-	
+    this.specialBalls = [SeekerBall, StealthBall, CirclingBall];
+
 	this.durationTickUp = 60;
 	
 	this.baseForDurationIncrease = 0;
@@ -34,11 +35,7 @@ return function GameValueHandler() {
 	this.levelup = function(){
 	this.level++;
 	this.initialballs++;
-	if (this.level % 2 == 0) {
-		this.specialBall = StealthBall;
-	} else {
-		this.specialBall = SeekerBall;	
-	}
+        this.specialBall = this.specialBalls[this.level % this.specialBalls.length];
 	
 	if ((this.level % this.ticksForDurationIncrease) + this.baseForDurationIncrease == 0) {
 		this.levelduration += this.durationTickUp;

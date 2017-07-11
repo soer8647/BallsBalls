@@ -29,7 +29,10 @@ var commonValues;
 			height: canvas.height,
 			stealthBallticks: gameState.stealthBallticks,
 			p: p,
-			maxTurn: gameState.maxTurn
+            maxTurn: gameState.maxTurn,
+            pickup: function () {
+                return pickup;
+            }
 		};
 
 		objects = [];
@@ -198,7 +201,7 @@ function addPickUp() {
 		currentdist = Calculations.dist(x, y, p.x, p.y);
 	}
 	//add Pickup
-	pickup = new Pickup(x,y,gameState.pickupLength );
+    pickup = new Pickup(x, y, gameState.pickupLength);
 }
 
 //ending the game, when player dies

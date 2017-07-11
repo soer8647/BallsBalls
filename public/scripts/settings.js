@@ -29,8 +29,10 @@ var settings = {
     standardBallColor:"#008000",
     stealthBallColor: "#ff0000",
     seekerBallColor:"#47b1a2",
+    circlingBallColor: "#4f00b1",
     gameTextColor:"#dd0095",
     menuTextColor:"#00d300",
+    pickupColor: "#FFA500",
 	canvasBackgroundColor: "#ffffff",
 	outsideBackgroundColor: "#4d4bff",
 

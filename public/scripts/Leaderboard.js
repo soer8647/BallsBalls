@@ -67,16 +67,9 @@ let firebaseURI = "https://leaderboard-bf98b.firebaseio.com";
 		query.once("value").then(
 		function(snapshot) {
 			let list = [];
-            let count;
-            if (limit != null) {
-                count = limit;
-            } else {
-                count = snapshot.numChildren();
-            }
 			snapshot.forEach(function(childSnapshot) {
                 list.push(childSnapshot.val());
 			});
-            console.log(list);
             list = list.filter(correctMethod);
             list = list.slice(list.length - 10, list.length);
 

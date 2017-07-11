@@ -1,5 +1,5 @@
 require.config({
-        urlArgs: "bust=v3"
+    urlArgs: "bust=v4"
 });
 
 require(["menuState","State","settings"], function(menuState,State,settings) {	
