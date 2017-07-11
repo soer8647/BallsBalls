@@ -22,7 +22,20 @@ define(["Leaderboard", "./htmlBuilder"], function (leaderboard, htmlBuilder) {
         htmlBuilder.write(outerDiv, "Sort after:");
         outerDiv.appendChild(htmlBuilder.makeSelect("ordering", ["score", "level"]));
         htmlBuilder.addSpace(outerDiv, 2);
+        htmlBuilder.write(outerDiv, "Filter:");
+        outerDiv.appendChild(htmlBuilder.makeSelect("filter", ["all", "mouse", "keys"]));
+        htmlBuilder.addSpace(outerDiv, 2);
         outerDiv.appendChild(htmlBuilder.makeInput("returnToMenu", "button", "Return to menu"));
+        htmlBuilder.addSpace(outerDiv, 1);
+    }
+
+    function loadDataforTable() {
+        let order = document.getElementById("ordering").value;
+        let filter = document.getElementById("filter").value;
+        if (filter == "all") {
+            filter = undefined;
+        }
+        leaderboard.getandgo(loadTable, 10, order, filter);
     }
 
     let highscoreState = function (controller, values) {
@@ -33,13 +46,15 @@ define(["Leaderboard", "./htmlBuilder"], function (leaderboard, htmlBuilder) {
                     controller.changeState("menuState");
                 });
 
-            let order = document.getElementById("ordering").value;
             document.getElementById("ordering").addEventListener("change", function (e) {
-                order = document.getElementById("ordering").value;
-                leaderboard.getandgo(loadTable, 10, order);
+                loadDataforTable();
             });
 
-            leaderboard.getandgo(loadTable, 10, order);
+            document.getElementById("filter").addEventListener("change", function (e) {
+                loadDataforTable();
+            });
+
+            loadDataforTable();
         };
 
         this.end = function () {

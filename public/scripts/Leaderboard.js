@@ -9,7 +9,23 @@ let firebaseURI = "https://leaderboard-bf98b.firebaseio.com";
   };
   firebase.initializeApp(config);
 
-let Leaderboard = function(){
+    let getCorrectMethod = function (input) {
+        if (input == "mouse") {
+            return function (item) {
+                return item.method == "Mouse";
+            }
+        }
+        if (input == "keys") {
+            return function (item) {
+                return item.method == "WASD" || item.method == "Arrow Keys";
+            };
+        }
+        return function () {
+            return true;
+        };
+    };
+
+    let Leaderboard = function () {
 	this.firebase = firebase.database();
 //     this.firebase.ref("scores").orderByChild("score").limitToLast(5).on("value", (value) => {
 //         this.scores = value.val()
@@ -24,9 +40,9 @@ let Leaderboard = function(){
 	this.addandgo = function(data,go) {
          this.firebase.ref("scores").push(data).setPriority(data.score).then(go, function(){
 			 console.log("fail");
-		 });		
+         });
     };
-	
+
     this.get = function() {
 		throw new Error("this shouldn't happen");
 		var list = [];
@@ -40,17 +56,30 @@ let Leaderboard = function(){
 		});
     };
 
-    this.getandgo = function (go, limit, ordering) {
+
+        this.getandgo = function (go, limit, ordering, filter) {
         let query = this.firebase.ref("scores").orderByChild(ordering);
-		if (limit!=null) {
-			query = query.limitToLast(limit);
-		}
+//		if (limit!=null) {
+//			query = query.limitToLast(limit);
+//		}
+            let correctMethod = getCorrectMethod(filter);
+
 		query.once("value").then(
 		function(snapshot) {
 			let list = [];
+            let count;
+            if (limit != null) {
+                count = limit;
+            } else {
+                count = snapshot.numChildren();
+            }
 			snapshot.forEach(function(childSnapshot) {
-				list.push(childSnapshot.val());
+                list.push(childSnapshot.val());
 			});
+            console.log(list);
+            list = list.filter(correctMethod);
+            list = list.slice(list.length - 10, list.length);
+
 			go(list);
 		});
 	};
