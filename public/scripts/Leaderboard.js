@@ -11,13 +11,13 @@ let firebaseURI = "https://leaderboard-bf98b.firebaseio.com";
 
 let Leaderboard = function(){
 	this.firebase = firebase.database();
-    this.firebase.ref("scores").orderByChild("score").limitToLast(5).on("value", (value) => {
-            this.scores = value.val()
-})
+//     this.firebase.ref("scores").orderByChild("score").limitToLast(5).on("value", (value) => {
+//         this.scores = value.val()
+// });
     this.add = function(data) {
         this.firebase.ref("scores").push(data).setPriority(data.score)
     };
-	
+
 	/*
 	* assumed that data is valid
 	*/
@@ -39,9 +39,9 @@ let Leaderboard = function(){
 			running = false;
 		});
     };
-	
-	this.getandgo = function(go,limit) {		
-		let query = this.firebase.ref("scores").orderByChild("score");
+
+    this.getandgo = function (go, limit, ordering) {
+        let query = this.firebase.ref("scores").orderByChild(ordering);
 		if (limit!=null) {
 			query = query.limitToLast(limit);
 		}

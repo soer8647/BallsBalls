@@ -57,6 +57,10 @@ function doBasic(thirdMessage) {
 }
 	
 function doGrace() {
+    if (gameState.playerdead) {
+        endgame();
+        return;
+    } else
 	if (paused) {
 		return;
 	}
@@ -141,8 +145,6 @@ function doTurn() {
 		nextTurn(doTurn);
 	}
 }
-		
-
 
 function nextTurn(feed) {
 	setTimeout(feed,gameState.refreshTime);
@@ -152,9 +154,6 @@ function setFont(quotent) {
 	ctx.font = (canvas.width/quotent)+"px " + myFont;
 	ctx.fillStyle = fillStyle;
 }
-
-
-
 
 function addObject(object) {
 	//set starting position

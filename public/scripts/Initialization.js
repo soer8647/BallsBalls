@@ -11,6 +11,7 @@ require(["menuState","State","settings"], function(menuState,State,settings) {
 	// Initialize canvas
 	canvas.dom = document.getElementById("myCanvas");
 	document.getElementsByTagName("BODY")[0].style.backgroundColor = settings.outsideBackgroundColor;
+        document.getElementById("outerDiv").style.backgroundColor = settings.canvasBackgroundColor;
 	canvas.dom.style.backgroundColor = settings.canvasBackgroundColor;
 	canvas.ctx = canvas.dom.getContext("2d");
 	

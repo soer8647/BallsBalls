@@ -1,4 +1,4 @@
-define(["settings"], function (settings) {
+define(["settings", "./htmlBuilder"], function (settings, htmlBuilder) {
     var controlMethods = ["Mouse", "WASD", "Arrow Keys"];
 
     initiateListeners = function (controller) {
@@ -57,74 +57,44 @@ define(["settings"], function (settings) {
                 });
     }
 
-    function setUp() {
+    function setUpPage() {
         let heading = document.createElement("h1");
-        write(heading, "Settings for BallsBalls");
+        htmlBuilder.write(heading, "Settings for BallsBalls");
         outerDiv.appendChild(heading);
 
         heading = document.createElement("h3");
-        write(heading, "Made by Søren Oehlenschlæger Hjort");
+        htmlBuilder.write(heading, "Made by Søren Oehlenschlæger Hjort");
         outerDiv.appendChild(heading);
 
-        write(outerDiv, "Uses Cookies to save setttings");
-        addSpace(outerDiv, 2);
-        write(outerDiv, "Input Method:");
+        htmlBuilder.write(outerDiv, "Uses Cookies to save setttings");
+        htmlBuilder.addSpace(outerDiv, 2);
+        htmlBuilder.write(outerDiv, "Input Method:");
 
-        outerDiv.appendChild(addSelect("inputMethod", controlMethods));
+        outerDiv.appendChild(htmlBuilder.makeSelect("inputMethod", controlMethods));
 
-        addSpace(outerDiv, 2);
-        write(outerDiv, "Auto submit score after game:");
-        addSpace(outerDiv, 1);
-        outerDiv.appendChild(addInput("autoSubmit", "checkbox", ""));
-        addSpace(outerDiv, 1);
+        htmlBuilder.addSpace(outerDiv, 2);
+        htmlBuilder.write(outerDiv, "Auto submit score after game:");
+        htmlBuilder.addSpace(outerDiv, 1);
+        outerDiv.appendChild(htmlBuilder.makeInput("autoSubmit", "checkbox", ""));
+        htmlBuilder.addSpace(outerDiv, 1);
 
-        write(outerDiv, "Name for Auto submit: ");
-        addSpace(outerDiv, 1);
-        outerDiv.appendChild(addInput("playerName", "text", ""));
-        addSpace(outerDiv, 2);
-        write(outerDiv, "sound level:");
+        htmlBuilder.write(outerDiv, "Name for Auto submit: ");
+        htmlBuilder.addSpace(outerDiv, 1);
+        outerDiv.appendChild(htmlBuilder.makeInput("playerName", "text", ""));
+        htmlBuilder.addSpace(outerDiv, 2);
+        htmlBuilder.write(outerDiv, "sound level:");
 
-        addSpace(outerDiv, 1);
-        let sound = addInput("sound", "range", "");
+        htmlBuilder.addSpace(outerDiv, 1);
+        let sound = htmlBuilder.makeInput("sound", "range", "");
         sound.min = 0;
         sound.step = 0.1;
         sound.max = 1;
         outerDiv.appendChild(sound);
-        addSpace(outerDiv, 2);
+        htmlBuilder.addSpace(outerDiv, 2);
 
-        outerDiv.appendChild(addInput("cancel", "button", "Cancel Changes"));
-        outerDiv.appendChild(addInput("confirm", "button", "Confirm Changes"));
-    }
-
-    function write(container, text) {
-        container.appendChild(document.createTextNode(text));
-    }
-
-    function addSpace(container, size) {
-        for (let i = 0; i < size; i++) {
-            container.appendChild(document.createElement("br"));
-        }
-    }
-
-    function addInput(id, type, value) {
-        let input = document.createElement("input");
-        input.setAttribute("id", id);
-        input.setAttribute("type", type);
-        input.setAttribute("value", value);
-        return input;
-    }
-
-    function addSelect(id, values) {
-        let container = document.createElement("select");
-        container.setAttribute("id", id);
-        let newOption;
-        for (value in values) {
-            newOption = document.createElement("option");
-            newOption.value = values[value];
-            newOption.text = values[value];
-            container.add(newOption);
-        }
-        return container;
+        outerDiv.appendChild(htmlBuilder.makeInput("cancel", "button", "Cancel Changes"));
+        outerDiv.appendChild(htmlBuilder.makeInput("confirm", "button", "Confirm Changes"));
+        htmlBuilder.addSpace(outerDiv, 1);
     }
 
     let outerDiv = document.getElementById("outerDiv");
@@ -132,7 +102,7 @@ define(["settings"], function (settings) {
     return function settingsState(controller, canvas) {
         this.init = function () {
             //outerDiv.innerHTML = '<h1>Settings for BallsBalls</h1><h3>Made by Søren Oehlenschlæger Hjort</h3>    Uses Cookies To save     <br/> 	     <br/>          Input Method:     <select id="input method">     <option value="Mouse">Mouse</option>     <option value="WASD">WASD</option>     <option value="Arrow Keys">Arrow Keys</option>     </select>          <br/>     <br/> 	 	Auto submit score after game: 	<br/> 	<input id="autoSubmit" type="checkbox"/> 	<br/> 	Name for Auto submit: 	<br/> 	<input id="playerName" type="text" name="playerName"> 	     <br/>     <br/>          <input type="button" id="cancel" value="Cancel Changes"> 	<input type="button" id="confirm" value="Confirm Changes"> ';
-            setUp();
+            setUpPage();
             initiateListeners(controller);
         };
         this.end = function () {
