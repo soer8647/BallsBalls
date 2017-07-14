@@ -3,7 +3,7 @@ define(["DrawFunctions", "Calculations", "Ball", "./settings"], function (drawFu
     return function CirclingBall(startx, starty, vx, vy, radius, commonValues) {
         this.target = commonValues.pickup;
         this.base = new Ball(startx, starty, vx, vy, radius, commonValues);
-        this.speed = Math.PI / 70;
+        this.speed = Math.PI / 30;
         this.angle = Math.random() * Math.PI * 2;
         this.circleRadius = commonValues.height / 15;
         this.currentDirection = 0;
