@@ -94,6 +94,8 @@ define(["settings","Music","GameFlow"],function(settings,music,game) {
 				music.toggleMute();
 			} else if(e.keyCode == settings.pauseKey) {
 				game.pauseGameToggle();
+			} else if(e.keyCode == 32) {
+			    game.spaceBar();
 			}
 		};
 		

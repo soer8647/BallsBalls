@@ -13,6 +13,7 @@ var endFunc;
 var gracetimer = 0;
 var grace = false;
 var paused = false;
+var gameOver = false;
 var commonValues;		
 
 	function initiate(aCanvas,endFunction,ctrlHandler) {
@@ -52,7 +53,7 @@ function doBasic(thirdMessage) {
     ctx.fillText("Level: "+ gameState.level,  canvas.width/100, 1*canvas.height/40);
 	ctx.fillText("Squares Gathered: "+gameState.score, canvas.width/100, 2*canvas.height/40);
 	if (thirdMessage!=null) {
-		ctx.fillText("Survive for: "+gameState.secondsLeft, canvas.width/100, 3*canvas.height/40);
+		ctx.fillText(thirdMessage, canvas.width/100, 3*canvas.height/40);
 	}	
 	//move player
 	p.move();
@@ -206,8 +207,15 @@ function addPickUp() {
 
 //ending the game, when player dies
 function endgame() {
+   gameOver = true;
 	music.playGameOver();
-	endFunc({score:gameState.score,level:gameState.level});
+}
+
+function spaceBar() {
+    doBasic("Press space to continue");
+    if (gameOver) {
+    	endFunc({score:gameState.score,level:gameState.level});
+    }
 }
 
 let pauseGameToggle = function() {
@@ -224,7 +232,8 @@ let pauseGameToggle = function() {
 
 return {
 	initiateGame: initiate,
-	pauseGameToggle: pauseGameToggle
+	pauseGameToggle: pauseGameToggle,
+	spaceBar: spaceBar
 }
 
 });

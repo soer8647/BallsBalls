@@ -3,7 +3,6 @@
 ///////////////////////////////////
 visually fix point i venstre hjørne eller flyt score
 change seeker color (lilla)
-freeze screen when dead (auto submit)
 
 standardize!
 Start balancing, create a levers to control difficulty
