@@ -1,4 +1,4 @@
-define(["SeekerBall", "StealthBall", "CirclingBall"], function (SeekerBall, StealthBall, CirclingBall) {
+define(["SeekerBall", "StealthBall", "CirclingBall","MotherBall"], function (SeekerBall, StealthBall, CirclingBall,MotherBall) {
 	function dist(x1,y1,x2,y2) {
     	return Math.sqrt(Math.pow(Math.abs(x1 - x2),2) + Math.pow(Math.abs(y1 - y2),2));
     }
@@ -18,7 +18,7 @@ return function GameValueHandler() {
 	this.ballspertick; //how many balls are created at once
 	this.basemaxBallspeed;
 	this.baseminBallspeed;
-    this.specialBalls = [SeekerBall, StealthBall, CirclingBall];
+    this.specialBalls = [SeekerBall, StealthBall,MotherBall, CirclingBall];
 
 	this.durationTickUp = 60;
 	

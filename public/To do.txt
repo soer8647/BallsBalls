@@ -3,6 +3,10 @@
 ///////////////////////////////////
 visually fix point i venstre hjørne eller flyt score
 change seeker color (lilla)
+Mother/Temp color
+develop Mother further
+Change specialBall system (allow multiple types at the same time.
+
 
 standardize!
 Start balancing, create a levers to control difficulty

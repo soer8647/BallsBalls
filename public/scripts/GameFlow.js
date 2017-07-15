@@ -1,7 +1,7 @@
 define(["GameValueHandler","Music","Calculations",
-"Paddle","Ball","Pickup", "./settings"
+"Paddle","Ball","Pickup", "./settings","TempBall"
 ],function(GameValueHandler, music, Calculations,
-           Paddle, Ball, Pickup, settings) {
+           Paddle, Ball, Pickup, settings,TempBall) {
 var canvas;
 var gameState = new GameValueHandler();
 var myFont = "Arial";
@@ -33,7 +33,9 @@ var commonValues;
             maxTurn: gameState.maxTurn,
             pickup: function () {
                 return pickup;
-            }
+            },
+            addObject: addObjectwithParameters,
+			removeObject: removeObject
 		};
 
 		objects = [];
@@ -157,6 +159,29 @@ function nextTurn(feed) {
 function setFont(quotent) {
 	ctx.font = (canvas.width/quotent)+"px " + myFont;
 	ctx.fillStyle = fillStyle;
+}
+
+function addObjectwithParameters(startx,starty,direction) {
+    //set speed
+    vx = Calculations.random(gameState.minBallspeed, gameState.maxBallspeed);
+    vy = Calculations.random(gameState.minBallspeed, gameState.maxBallspeed);
+
+    //set size
+    radius = Calculations.random(gameState.minballRadius,gameState.maxballRadius);
+
+	//add to ball list
+	let newObject = new TempBall(startx, starty, vx, vy, radius,commonValues);
+	objects.push(newObject);
+	console.log("added: " + startx + "," + starty);
+	return newObject;
+}
+
+function removeObject(object) {
+	let index = objects.indexOf(object);
+
+    if (index > -1) {
+        objects.splice(index, 1);
+    }
 }
 
 function addObject(object) {

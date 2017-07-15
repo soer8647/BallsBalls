@@ -13,7 +13,6 @@ define(["DrawFunctions", "Calculations", "Ball", "./settings"], function (drawFu
             this.angle += this.speed;
             this.base.x = target.x + target.width / 2 + Math.cos(this.angle) * this.circleRadius;
             this.base.y = target.y + target.height / 2 + Math.sin(this.angle) * this.circleRadius;
-            console.log(this.base.x, this.base.y);
         };
 
         this.shape = function () {

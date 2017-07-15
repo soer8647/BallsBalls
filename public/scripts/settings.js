@@ -30,6 +30,8 @@ var settings = {
     stealthBallColor: "#ff0000",
     seekerBallColor:"#47b1a2",
     circlingBallColor: "#4f00b1",
+    motherBallColor:"#4f00b1",
+    TempBallColor:"#47b1a2",
     gameTextColor:"#dd0095",
     menuTextColor:"#00d300",
     pickupColor: "#FFA500",
