@@ -10,8 +10,11 @@ var settings = {
  leftKey: 37,
  downKey: 40,
 
- restartKey: 32, //spacebar
- settingsKey: 73,  // i
+
+    restartKey: 32, //spacebar
+    menuChooseKey: 32,
+    altMenuChooseKey: 13,
+    settingsKey: 73,  // i
  highscoreKey: 72, // h
  SubmitKey: 13, //enter
  muteKey: 77, // m
@@ -38,6 +41,7 @@ var settings = {
 	canvasBackgroundColor: "#ffffff",
 	outsideBackgroundColor: "#4d4bff",
 
+    font: "Arial",
 
 
  setSetting: setCookie,
