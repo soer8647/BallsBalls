@@ -9,11 +9,9 @@ var settings = {
  rightKey: 39,
  leftKey: 37,
  downKey: 40,
-
+    menu: {upKey: 38, downKey: 40, altDownKey: 83, altUpKey: 87, ChooseKey: 32, altChooseKey: 13,},
 
     restartKey: 32, //spacebar
-    menuChooseKey: 32,
-    altMenuChooseKey: 13,
     settingsKey: 73,  // i
  highscoreKey: 72, // h
  SubmitKey: 13, //enter

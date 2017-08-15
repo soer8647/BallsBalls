@@ -44,19 +44,20 @@ define(["settings","DrawFunctions"],function(settings,drawFunction) {
 		};
 		
 		this.keydownHandler = function(e) {
-			if (e.keyCode == settings.upKey) {
+            let menuSettings = settings.menu;
+            if (e.keyCode == menuSettings.upKey || e.keyCode == menuSettings.altUpKey) {
                 currentPosition--;
                 if (currentPosition<0) {
                 	currentPosition=menuCount	;
 				}
                 setMenuText(canvas);
-            } else if (e.keyCode == settings.downKey) {
+            } else if (e.keyCode == menuSettings.downKey || e.keyCode == menuSettings.altDownKey) {
                 currentPosition++;
                 if (currentPosition>menuCount) {
                     currentPosition=0;
                 }
                 setMenuText(canvas);
-            } else if (e.keyCode == settings.menuChooseKey || e.keyCode == settings.altMenuChooseKey) {
+            } else if (e.keyCode == menuSettings.ChooseKey || e.keyCode == menuSettings.altChooseKey) {
                 controller.changeState(menuItems[currentPosition]);
 			}
 		};

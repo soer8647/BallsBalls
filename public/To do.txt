@@ -14,6 +14,7 @@ Start balancing, create a levers to control difficulty
 establish facade between game and animation
 
 multiple points!
+
 bouncing ball?
 Mine ball (en, der står stille)
 
