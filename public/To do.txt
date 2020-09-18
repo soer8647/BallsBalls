@@ -5,19 +5,15 @@ visually fix point i venstre hjørne eller flyt score
 change seeker color (lilla)
 Mother/Temp color
 develop Mother further
-Change specialBall system (allow multiple types at the same time.
-
+Change specialBall system (allow multiple types at the same time)
 
 standardize!
-Start balancing, create a levers to control difficulty
-/ change level progression
-establish facade between game and animation
+Start balancing, create a levers to control difficulty/change level progression
+Establish facade between game and animation
 
-multiple points!
-
-bouncing ball?
-Mine ball (en, der står stille)
-
+multiple points
+a bouncing ball?
+Stationary ball?
 
 mods
 powerup options
@@ -26,7 +22,6 @@ users
 ///////////////////////////////////
 ////////   From mobile    /////////
 ///////////////////////////////////
-
 Old TODO's:
 Fix highscore submitting (done)
 reveal invis Ball on impact (done)
